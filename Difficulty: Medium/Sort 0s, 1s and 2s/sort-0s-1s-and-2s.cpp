@@ -10,42 +10,24 @@ class Solution
     public:
     void sort012(int a[], int n)
     {
-        int zeros=0;
-        int ones=0;
-        int twos=0;
+        unordered_map<int ,int>count;
         for(int i=0;i<n;i++)
         {
-            if(a[i]==0)
-            {
-                zeros++;
-            }
-            else if(a[i]==1)
-            {
-                ones++;
-            }
-            else
-            {
-                twos++;
-            }
+            count[a[i]]++;
         }
         int i=0;
-        while(zeros--)
+        while(count[0]--)
         {
-            a[i]=0;
-            i++;
+            a[i++]=0;
         }
-        while(ones--)
+        while(count[1]--)
         {
-            a[i]=1;
-            i++;
+            a[i++]=1;
         }
-        while(twos--)
+        while(count[2]--)
         {
-            a[i]=2;
-            i++;
+            a[i++]=2;
         }
-        
-    
     }
     
 };
