@@ -9,21 +9,21 @@ using namespace std;
 class Solution {
   public:
     // Function to find the sum of contiguous subarray with maximum sum.
-    long long maxSubarraySum(vector<int>& arr) {
-        long long maxSum = LLONG_MIN; // Initialize maxSum to the smallest possible value
-        long long currentSum = 0; // Initialize currentSum to 0
-        
-        for (int i = 0; i < arr.size(); ++i) {
-            currentSum += arr[i]; 
-            if (currentSum > maxSum) {
-                maxSum = currentSum; 
-            }
-            if (currentSum < 0) {
-                currentSum = 0; 
+    long long maxSubarraySum(vector<int> &arr) {
+        int ans=INT_MIN;
+        int sum=0;
+        for(int i=0;i<arr.size();i++)
+        {
+            int num=arr[i];
+            sum=sum+num;
+            ans=max(ans,sum);
+            if(sum<0)
+            {
+                sum=0;
             }
         }
+        return ans;
         
-        return maxSum;
     }
 };
 
