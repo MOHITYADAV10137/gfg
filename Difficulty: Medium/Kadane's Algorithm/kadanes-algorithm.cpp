@@ -12,18 +12,19 @@ class Solution {
     long long maxSubarraySum(vector<int> &arr) {
         int ans=INT_MIN;
         int sum=0;
-        for(int i=0;i<arr.size();i++)
+        int n=arr.size();
+        for(int i=0;i<n;i++)
         {
-            int num=arr[i];
+            int num= arr[i];
             sum=sum+num;
             ans=max(ans,sum);
             if(sum<0)
             {
                 sum=0;
             }
+            
         }
         return ans;
-        
     }
 };
 
