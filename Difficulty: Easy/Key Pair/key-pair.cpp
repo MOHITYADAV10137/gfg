@@ -5,31 +5,32 @@ using namespace std;
 
 // } Driver Code Ends
 // User function template for C++
-
 class Solution {
-  public:
+public:
     // Function to check if array has 2 elements
     // whose sum is equal to the given value
     bool hasArrayTwoCandidates(vector<int>& arr, int x) {
-        int l=0;
-        int n=arr.size();
-        int h=n-1;
-        sort(arr.begin(),arr.end());
-        while(l<h)
-        {
-            int csum=arr[l]+arr[h];
-            if(csum==x)
-            {
-                return true;
+        int n = arr.size();
+        sort(arr.begin(), arr.end());
+        
+        int i = 0;
+        int j = n - 1; // Adjusted to point to the last element
+        
+        while (i < j) {
+            int sum = arr[i] + arr[j];
+            
+            if (sum == x) {
+                return true; // If the sum is found, return true
             }
-            else if(csum<x)
-            l++;
-            else{
-                h--;
+            else if (sum < x) {
+                i++; // Move the left pointer to increase the sum
             }
-    
+            else {
+                j--; // Move the right pointer to decrease the sum
+            }
         }
-        return false;
+        
+        return false; // If no pair is found, return false
     }
 };
 
