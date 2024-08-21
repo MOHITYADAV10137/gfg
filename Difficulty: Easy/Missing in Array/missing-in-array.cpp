@@ -12,16 +12,16 @@ class Solution {
 
     // Note that the size of the array is n-1
     int missingNumber(int n, vector<int>& arr) {
-    
-        int sum=n*(n+1)/2;
-        int s=0;
+
+        int totalsum=n*(n+1)/2;
+        int actualsum=0;
         for(int i=0;i<arr.size();i++)
         {
-             s=s+arr[i];
             
+            actualsum=actualsum+arr[i];
             
         }
-        return sum-s;
+        return totalsum-actualsum;
         
     }
 };
